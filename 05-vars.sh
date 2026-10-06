@@ -13,3 +13,4 @@ echo "Home directory of the user is $HOME"
 echo "sleep for 10 seconds"
 sleep 25 
 echo "background process id is $!"
+timer = $SECONDS 

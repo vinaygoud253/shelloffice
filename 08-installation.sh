@@ -4,5 +4,4 @@ userId=$(id -u)
 #     exit 1
 # fi
 # dnf install nginx -y
-
-userId=$(id -u)
+echo "$userId"

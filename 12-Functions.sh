@@ -11,4 +11,4 @@ adding_numbers() {
   echo "The sum of $num1 and $num2 is: $sum"
 }
 
-adding_numbers
+adding_numbers "$1" "$2"

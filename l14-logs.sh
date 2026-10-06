@@ -12,21 +12,21 @@ mkdir -p "$logs_folder"
 
 validate(){
     if [ $1 -eq 0 ]; then
-        echo "$2 installation completed successfully."
+        echo "$2 installation completed successfully." | tee -a "$logs_file"
     else
-        echo "$2 installation failed. Please check the error messages above."
+        echo "$2 installation failed. Please check the error messages above." | tee -a "$logs_file"
         exit 1
     fi
 }
 
-dnf install nginx -y &>>"$logs_file"
+dnf install nginx -y &>>"$logs_file" | tee -a "$logs_file"
     
 validate $? "Nginx"
 
-dnf install mysql -y &>>"$logs_file"
+dnf install mysql -y &>>"$logs_file" | tee -a "$logs_file"
 
 validate $? "MySQL"
 
-dnf install nodejs -y &>>"$logs_file"
+dnf install nodejs -y &>>"$logs_file" | tee -a "$logs_file"
 
 validate $? "Node.js"   

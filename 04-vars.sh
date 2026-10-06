@@ -1,3 +1,7 @@
 #!/bin/bash
-TIMESTAMP=$(date +%Y-%m-%d_%H-%M-%S)
+TIMESTAMP=$(date +%s)
 echo "Script executed at: $TIMESTAMP"
+sleep 20
+TIMESTAMP1=$(date +%s)
+TotalSleepTime=$((TIMESTAMP1 - TIMESTAMP))
+echo "Total sleep time: $TotalSleepTime seconds"

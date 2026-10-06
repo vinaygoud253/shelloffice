@@ -29,6 +29,6 @@ validate(){
 for packages in $@
 do
     dnf install "$packages" -y &>>"$logs_file" | tee -a "$logs_file"
-    validate $? "$packages"
+    validate $? "$packages installation"
 done
 

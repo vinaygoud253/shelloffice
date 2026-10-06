@@ -1,0 +1,15 @@
+#!/bin/bash
+echo "All variables that are passed to this script $@"
+echo "All number of variables that are passed to this script $#"
+echo "All variables that are passed to this script $*"
+echo "First variable that is passed to this script $1"
+echo "Second variable that is passed to this script $2"
+echo "Third variable that is passed to this script $3"
+echo "Who is running this script $USER"
+echo "Current working directory is $PWD"
+echo "Current shell is $SHELL"
+echo "Current process ID is $$"
+echo "Home directory of the user is $HOME"
+echo "sleep for 10 seconds"
+sleep 25 $
+echo "background process id is $!"

@@ -28,6 +28,12 @@ validate(){
 
 for packages in $@
 do
+    dnf list installed "$packages" &>>"$logs_file"
+    if [ $? -eq 0 ]; then
+        echo "$packages is already installed." | tee -a "$logs_file"
+    else
+        echo "$packages is not installed. Installing..." | tee -a "$logs_file"
+    fi
     dnf install "$packages" -y &>>"$logs_file" | tee -a "$logs_file"
     validate $? "$packages installation"
 done

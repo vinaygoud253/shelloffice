@@ -22,5 +22,11 @@ echo "User ID: $user_id"
 if [ "$user_id" -eq 0 ]; then
     echo "You are running this script as root."
 else
-    echo "You are not running this script as root."
+    echo "Enter your username:"
+    read username
+    echo "Enter your password:"
+    read -s password
+    echo "You entered username: $username" 
+    echo "You entered password: $password"
 fi
+

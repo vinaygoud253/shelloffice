@@ -1,21 +1,20 @@
 #!/bin/bash
 
-
-
+# Ensure script is run as root
 userid=$(id -u)
-
-logs_folder="/var/log/shell-scripts"
-logs_file="$logs_folder/$0.log"
-
 if [ "$userid" -ne 0 ]; then
     echo "This script must be run as root. Please run with sudo or as root user."
     exit 1
 fi
 
+logs_folder="/var/log/shell-scripts"
+# Clean up log_file name by using basename of $0
+logs_file="$logs_folder/$(basename "$0").log"
+
 mkdir -p "$logs_folder"
 
 validate(){
-    if [ $1 -eq 0 ]; then
+    if [ "$1" -eq 0 ]; then
         echo "$2 installation completed successfully." | tee -a "$logs_file"
     else
         echo "$2 installation failed. Please check the error messages above." | tee -a "$logs_file"
@@ -23,15 +22,21 @@ validate(){
     fi
 }
 
-for packages in $@
+for package in "$@"
 do
-    dnf list installed "$packages" &>>"$logs_file"
+    # Check if package is already installed
+    dnf list installed "$package" &>>"$logs_file"
+    
     if [ $? -eq 0 ]; then
-        echo "$packages is already installed." | tee -a "$logs_file"
+        echo "$package is already installed. Skipping..." | tee -a "$logs_file"
     else
-        echo "$packages is not installed. Installing..." | tee -a "$logs_file"
+        echo "$package is not installed. Installing..." | tee -a "$logs_file"
+        
+        # Corrected redirection: log output while also showing it on screen
+        dnf install "$package" -y &>> "$logs_file"
+        
+        # Validate the actual exit code of dnf install
+        validate $? "$package"
     fi
-    dnf install "$packages" -y &>>"$logs_file" | tee -a "$logs_file"
-    validate $? "$packages installation"
 done
 

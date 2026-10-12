@@ -25,3 +25,5 @@ validate $? "MySQL"
 dnf install nodejs -y
 
 validate $? "Node.js"   
+
+hello

@@ -1,8 +1,11 @@
 #!/bin/bash
-echo "Please enter the first name:"
+echo "Please enter the  name:"
 read name1
-echo "Please enter the second name:"
-read name2
-echo "Hello $name1, how are you?"
-echo "Hello $name2, I'm doing well. How about you?"
-echo "I'm good too, thanks for asking!"
+echo "Please enter the password:"
+read -s name2
+
+working_directory=$(pwd)
+time_logged_in=$(who | grep $name1 | awk '{print $3, $4}')
+echo "user is working in the directory: $working_directory"
+echo "user have logged in as: $name1"
+ehco "user have logged in at: $time_logged_in"

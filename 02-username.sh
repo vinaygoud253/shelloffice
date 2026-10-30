@@ -14,3 +14,5 @@ echo "Start time: $start_time_stamp"
 # end_time_stamp=$(date +%Y-%m-%d_%H-%M-%S)
 # total_time=$(( $(date -d "$end_time_stamp" +%s) - $(date -d "$start_time_stamp" +%s) ))
 # echo "Total time taken: $total_time seconds."
+start_time=$(date +%s)
+echo "Start time: $start_time"

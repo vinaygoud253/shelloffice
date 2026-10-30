@@ -9,7 +9,8 @@
 # echo "Your name is $person1." and "Your password is $password."
 
 start_time_stamp=$(date +%Y-%m-%d_%H-%M-%S)
-sleep 10
-end_time_stamp=$(date +%Y-%m-%d_%H-%M-%S)
-total_time=$(( $(date -d "$end_time_stamp" +%s) - $(date -d "$start_time_stamp" +%s) ))
-echo "Total time taken: $total_time seconds."
+echo "Start time: $start_time_stamp"
+# sleep 10
+# end_time_stamp=$(date +%Y-%m-%d_%H-%M-%S)
+# total_time=$(( $(date -d "$end_time_stamp" +%s) - $(date -d "$start_time_stamp" +%s) ))
+# echo "Total time taken: $total_time seconds."

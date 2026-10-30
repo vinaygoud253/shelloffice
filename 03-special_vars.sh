@@ -11,6 +11,6 @@
 # sleep 100 &
 # echo "The process ID of the last background command is: $!"
 # echo "The all arguments passed to this script as a single string is: $*"
-fruits = ("apple" "banana" "cherry")
+fruits = ("apple","banana","cherry")
 echo "The first fruit is: ${fruits[0]}" 
 echo "All fruits are: ${fruits[@]}"

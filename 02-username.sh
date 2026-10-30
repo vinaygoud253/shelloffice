@@ -4,6 +4,6 @@
 echo "please enter your name:"
 read person1
 echo "please enter your password:"
-read -p password
+read -s password
 
 echo "Your name is $person1." and "Your password is $password."

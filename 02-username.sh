@@ -8,11 +8,15 @@
 
 # echo "Your name is $person1." and "Your password is $password."
 
-start_time_stamp=$(date +%Y-%m-%d_%H-%M-%S)
-echo "Start time: $start_time_stamp"
+# start_time_stamp=$(date +%Y-%m-%d_%H-%M-%S)
+# echo "Start time: $start_time_stamp"
 # sleep 10
 # end_time_stamp=$(date +%Y-%m-%d_%H-%M-%S)
 # total_time=$(( $(date -d "$end_time_stamp" +%s) - $(date -d "$start_time_stamp" +%s) ))
 # echo "Total time taken: $total_time seconds."
 start_time=$(date +%s)
 echo "Start time: $start_time"
+sleep 10
+end_time=$(date +%s)
+total_time=$((end_time - start_time))
+echo "Total time taken: $total_time seconds."
